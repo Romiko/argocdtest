@@ -1,0 +1,26 @@
+{{- if .Values.nginxIngress.enabled -}}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: components-nginx-ingress
+spec:
+  destination:
+    namespace: argo-sandbox
+    server: 'https://kubernetes.default.svc'
+  source:
+    repoURL: https://github.com/Romiko/argocdtest.git
+    targetRevision: "{{ .Values.targetRevision }}"
+    path: components/nginx-ingress
+    helm:
+      valueFiles:
+      - values.yaml
+      - values-{{ .Values.environment }}.yaml
+  project: components
+  syncPolicy:
+    automated:
+      automated:
+        prune: false
+        selfHeal: false
+      prune: true
+      selfHeal: true
+{{- end -}}
