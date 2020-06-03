@@ -8,7 +8,7 @@ spec:
     namespace: argo-sandbox
     server: 'https://kubernetes.default.svc'
   source:
-    repoURL: https://github.com/Romiko/argocdtest.git
+    repoURL: git@github.com:Romiko/argocdtest.git
     targetRevision: "{{ .Values.targetRevision }}"
     path: components/nginx-ingress
     helm:
