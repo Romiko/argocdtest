@@ -1,5 +1,0 @@
-targetRevision: HEAD
-
-nginxIngress:
-  enabled: false
-

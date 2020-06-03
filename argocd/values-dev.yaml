@@ -1,6 +1,0 @@
-targetRevision: HEAD
-environment: dev
-
-nginxIngress:
-  enabled: true
-
